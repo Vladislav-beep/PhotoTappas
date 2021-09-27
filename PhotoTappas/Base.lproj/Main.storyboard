@@ -1,24 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqj-6v-6kg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--PhotoTapps-->
+        <scene sceneID="4Dj-26-tAj">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <collectionViewController id="6v4-u6-KiH" customClass="PhotosCollectionViewController" customModule="PhotoTappas" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pMt-xY-keU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VfN-lV-o2b">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="yqY-m0-NPI" customClass="PhotoCell" customModule="PhotoTappas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="raU-tw-8pj" customClass="PhotoCell" customModule="PhotoTappas" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog11" translatesAutoresizingMaskIntoConstraints="NO" id="uMG-Ac-Bdg">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uMG-Ac-Bdg" firstAttribute="leading" secondItem="raU-tw-8pj" secondAttribute="leading" id="0ou-vN-6dG"/>
+                                        <constraint firstAttribute="bottom" secondItem="uMG-Ac-Bdg" secondAttribute="bottom" id="Hnb-u7-KeN"/>
+                                        <constraint firstItem="uMG-Ac-Bdg" firstAttribute="top" secondItem="raU-tw-8pj" secondAttribute="top" id="ICo-s7-5On"/>
+                                        <constraint firstAttribute="trailing" secondItem="uMG-Ac-Bdg" secondAttribute="trailing" id="UzU-bz-RcY"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="128" height="128"/>
+                                <connections>
+                                    <outlet property="dogImageView" destination="uMG-Ac-Bdg" id="6cj-mh-RF6"/>
+                                    <segue destination="bWs-dH-gbq" kind="presentation" identifier="pickPhoto" id="Wea-dL-cJK"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6v4-u6-KiH" id="jZs-8u-cPl"/>
+                            <outlet property="delegate" destination="6v4-u6-KiH" id="Cge-I0-O08"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="PhotoTapps" id="UC5-5N-isb"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFT-ZU-X0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="953.62318840579712" y="80.357142857142847"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="JGp-Ym-Rwk">
+            <objects>
+                <viewController id="bWs-dH-gbq" customClass="PhotoViewController" customModule="PhotoTappas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rJS-5Y-gcS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BOX-oe-nof">
+                                <rect key="frame" x="0.0" y="307.5" width="414" height="227"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="227" id="1Fg-jw-lhX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSl-7D-HmY">
+                                <rect key="frame" x="145.5" y="750" width="123" height="22"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title=" Tap to share" image="square.and.arrow.up" catalog="system">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareAction:" destination="bWs-dH-gbq" eventType="touchUpInside" id="Eh6-BV-O7l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4lJ-74-9Nc"/>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BOX-oe-nof" firstAttribute="trailing" secondItem="4lJ-74-9Nc" secondAttribute="trailing" id="SDU-r9-qef"/>
+                            <constraint firstItem="BOX-oe-nof" firstAttribute="centerY" secondItem="rJS-5Y-gcS" secondAttribute="centerY" id="U7x-S7-30C"/>
+                            <constraint firstItem="4lJ-74-9Nc" firstAttribute="bottom" secondItem="iSl-7D-HmY" secondAttribute="bottom" constant="36" id="eI1-M5-Jte"/>
+                            <constraint firstItem="iSl-7D-HmY" firstAttribute="centerX" secondItem="rJS-5Y-gcS" secondAttribute="centerX" id="hZt-EI-Iyn"/>
+                            <constraint firstItem="BOX-oe-nof" firstAttribute="leading" secondItem="4lJ-74-9Nc" secondAttribute="leading" id="mMq-V2-HGR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="BOX-oe-nof" id="7vg-Ke-No6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6z-dh-ZFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818.840579710145" y="79.6875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ch9-Bd-P96">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eqj-6v-6kg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="49b-Rd-Bdq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6v4-u6-KiH" kind="relationship" relationship="rootViewController" id="Y3V-3w-tEo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="av5-af-ntd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43.478260869565219" y="80.357142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dog11" width="640" height="921"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
